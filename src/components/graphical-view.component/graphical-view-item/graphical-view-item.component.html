@@ -1,0 +1,30 @@
+<div *ngIf="item && direction === 'HORIZONTAL'" class="row">
+  <div id="circle" class="m-auto p-0">
+    <p *ngIf="item.caption && captionPosition === 'TOP'" class="m-0 p-0 caption-img" [style.line-height.rem]="fontS+1" [style.font-size.rem]="fontS"
+      [style.color]="captionColor">
+      {{item.caption}}
+    </p>
+    <img *ngIf="!(value && value!==0 && item.imageComplete)" [style.height]="stepH+'rem'" class="circle-img" src={{item.image}}>
+    <img *ngIf="value && value!==0 && item.imageComplete" [style.height]="stepH+'rem'" class="circle-img" src={{item.imageComplete}}>
+    <p *ngIf="item.caption && captionPosition === 'BOTTOM'" class="m-0 p-0 caption-img" [style.line-height.rem]="fontS+1" [style.font-size.rem]="fontS"
+      [style.color]="captionColor">
+      {{item.caption}}
+    </p>
+  </div>
+</div>
+
+<div *ngIf="item && direction === 'VERTICAL'" class="row vertical-container" [style.margin-top]="0">
+    <p #captionImg *ngIf="item.caption" class="m-auto p-2 caption-img caption-img-vertical" [style.line-height.rem]="fontS+1" [style.font-size.rem]="fontS"
+    [style.color]="captionColor" [style.left]="captionVposition">
+    {{item.caption}}
+  </p>
+  <div id="circle" class="m-auto p-0 flex-container">
+    
+    <img *ngIf="!(value && value!==0 && item.imageComplete)" [style.width]="stepH+'rem'" class="circle-img m-auto" src={{item.image}}>
+    <img *ngIf="value && value!==0 && item.imageComplete" [style.width]="stepH+'rem'" class="circle-img m-auto" src={{item.imageComplete}}>
+    <!-- <p *ngIf="item.caption && captionPosition === 'RIGHT'" class="m-auto p-2 caption-img" [style.line-height.rem]="fontS+1" [style.font-size.rem]="fontS"
+      [style.color]="captionColor">
+      {{item.caption}}
+    </p> -->
+  </div>
+</div>

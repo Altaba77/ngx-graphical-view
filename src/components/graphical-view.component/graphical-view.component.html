@@ -1,0 +1,73 @@
+<div *ngIf="steps && steps.length > 1 && direction === 'HORIZONTAL'" #graphicalviewcomponent class="container-fluid">
+
+  <!-- Status part -->
+  <div *ngIf="captionStatus && captionStatus.length>0  && statusPosition==='TOP'" class="mb-4 status-container" [style.padding-right]="paddingProgress"
+    [style.padding-left]="paddingProgress">
+    <div #statusParent class="status-bar" [style.padding-left]="statusBoxPadding+'%'">
+      <span #status [style.font-size.rem]="statusS" [style.color]="statusColor" [ngClass]="{'arrow-tooltip':true,'arrow-tooltip-right':arrowCssValue==='RIGHT','arrow-tooltip-left':arrowCssValue==='LEFT'
+         ,'arrow-tooltip-middle':arrowCssValue==='MIDDLE','arrow-tooltip-bottom':true}" [innerHTML]="captionStatus">
+
+      </span>
+    </div>
+  </div>
+
+  <!-- img part -->
+  <div *ngIf="progressReady" class="flex-container">
+    <div *ngFor="let item of steps;index as i" class="graphical-view">
+      <graphical-view-item [item]="item" [value]="progressValues[i] ? progressValues[i] : progressValues[i-1]===100 ? 100 : 0"
+        [height]="stepsH" [font-size]="fontS" [caption-position]="captionPosition" [caption-color]="captionColor" [direction]="direction">
+      </graphical-view-item>
+    </div>
+  </div>
+
+  <!-- progress bars part -->
+  <div *ngIf="progressReady" [style.padding-right]="paddingProgress" [style.padding-left]="paddingProgress" class="flex-container">
+    <div *ngFor="let item of progressBarNumber;index as i" class="graphical-view" [style.margin-top]="calcProgressBarPosition()">
+      <div *ngIf="i===0">
+        <ngb-progressbar [height]="progressBarH+'rem'" [value]="progressValues[i]"></ngb-progressbar>
+      </div>
+      <div *ngIf="i===progressBarNumber.length-1">
+        <ngb-progressbar [height]="progressBarH+'rem'" [value]="progressValues[i]"></ngb-progressbar>
+      </div>
+      <div *ngIf="i!==progressBarNumber.length-1 && i!==0">
+        <ngb-progressbar [height]="progressBarH+'rem'" [value]="progressValues[i]"></ngb-progressbar>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Status part -->
+  <div *ngIf="captionStatus && captionStatus.length>0 && statusPosition==='BOTTOM'" class="mt-4 status-container" [style.padding-right]="paddingProgress"
+    [style.padding-left]="paddingProgress">
+    <div id="statusParent" class="status-bar" [style.padding-left]="statusBoxPadding+'%'">
+      <span #status [style.font-size.rem]="statusS" [style.color]="statusColor" [ngClass]="{'arrow-tooltip':true,'arrow-tooltip-right':arrowCssValue==='RIGHT','arrow-tooltip-left':arrowCssValue==='LEFT'
+       ,'arrow-tooltip-middle':arrowCssValue==='MIDDLE'}" [innerHTML]="captionStatus">
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------- VERTICAL PGRAPHICAL ---------------------------------------------- -->
+<div *ngIf="steps && steps.length > 1 && direction === 'VERTICAL'" #graphicalviewcomponent class="container-fluid container-vertical">
+
+  <!-- img + progress bar part -->
+  <div #progressbarcontainer *ngIf="progressReady" class="flex-container flex-container-vertical">
+    <div *ngFor="let item of steps;index as i" class="graphical-view">
+      <graphical-view-item [item]="item" [value]="progressValues[i] ? progressValues[i] : progressValues[i-1]===100 ? 100 : 0"
+        [height]="stepsH" [font-size]="fontS" [caption-position]="captionPosition" [caption-color]="captionColor" [direction]="direction">
+      </graphical-view-item>
+      <div *ngIf="i<progressBarNumber.length" class="vertical-progress" [style.width]="widthProgressV" [style.height]="progressBarL+'rem'" [style.padding-top]="paddingTopProgressV">
+        <ngb-progressbar [height]="progressBarH+'rem'" [value]="progressValues[i]"></ngb-progressbar>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Status part -->
+  <div *ngIf="captionStatus && captionStatus.length>0" class="status-container status-container-vertical" [style.bottom]="statusBoxVerticalPos+'px'">
+    <div id="statusParent" class="status-bar" [style.padding-left]="statusBoxHorizontalPos+'px'">
+      <span #status [style.font-size.rem]="statusS" [style.color]="statusColor" [ngClass]="{'arrow-tooltip':true,'arrow-tooltip-vertical-left':arrowCssValue==='VERTICAL-LEFT','arrow-tooltip-vertical-right':arrowCssValue==='VERTICAL-RIGHT'}" [innerHTML]="captionStatus">
+      </span>
+    </div>
+  </div>
+</div>

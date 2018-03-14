@@ -1,0 +1,116 @@
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container-vertical{
+  flex-direction: column;
+  height: 100%;
+}
+
+.graphical-view{
+    flex: 1;
+}
+
+.status-container{
+    white-space: nowrap;
+}
+
+.arrow-tooltip {
+    position: relative;
+    padding: 0.5em;
+    border: 2px solid #512698;
+    background: #fff;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .arrow-tooltip:after, .arrow-tooltip:before {
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    content: ' ';
+    pointer-events: none;
+    border: solid transparent;
+  }
+  
+  .arrow-tooltip-left:after, .arrow-tooltip-left:before {
+    left: 15%;
+  }
+  
+  .arrow-tooltip-middle:after, .arrow-tooltip-middle:before {
+    left: 50%;
+  }
+  
+  .arrow-tooltip-right:after, .arrow-tooltip-right:before {
+    left: 85%;
+  }
+  
+  .arrow-tooltip:after {
+    margin-left: -10px;
+    border-width: 10px;
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #fff;
+  }
+  
+  .arrow-tooltip:before {
+    margin-left: -13px;
+    border-width: 13px;
+    border-color: rgba(81, 38, 152, 0);
+    border-bottom-color: #512698;
+  }
+
+  .arrow-tooltip-bottom:after, .arrow-tooltip-bottom:before {
+    bottom: calc(-2rem + 6px);
+    transform: rotateZ(180deg);
+  }
+
+  .arrow-tooltip-bottom:after {
+    margin-left: -16px;
+    border-width: 16px;
+  }
+
+  .arrow-tooltip-vertical-left:after, .arrow-tooltip-vertical-left:before {
+    bottom: calc(50% - 13px);
+    left: calc(100% + 1rem - 1px);
+    transform: rotateZ(90deg);
+  }
+
+  .arrow-tooltip-vertical-left:after {
+    margin-left: -15px;
+    border-width: 13px;
+  }
+
+  .arrow-tooltip-vertical-right:after, .arrow-tooltip-vertical-right:before {
+    bottom: calc(50% - 13px);
+    left: -13px;
+    transform: rotateZ(-90deg);
+  }
+
+  .arrow-tooltip-vertical-right:after {
+    margin-left: -11px;
+    border-width: 13px;
+  }
+  
+  .arrow-tooltip {
+    font-size: 1rem;
+    overflow: hidden;
+  }
+
+  .vertical-progress{
+    transform: rotateZ(90deg);
+    margin: auto;
+  }
+
+  .status-container-vertical{
+    position: absolute;
+    width: 100%;
+
+  }
+
+  .container-vertical{
+    position: relative;
+  }
+
+

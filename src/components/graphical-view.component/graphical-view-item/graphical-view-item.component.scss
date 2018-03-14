@@ -1,0 +1,29 @@
+#circle{
+    text-align: center;
+    z-index: 200;
+}
+    
+#progress{
+z-index: 100;
+}
+
+.caption-img{
+    white-space: nowrap;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.vertical-container{
+    position: relative;
+}
+
+.caption-img-vertical{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+       
