@@ -2,7 +2,7 @@
 
 This angular component is a graphical view of a progress bar which include images as intermediate steps.
 
-This library use bootstrap framework to generate the 
+This library use bootstrap framework to generate the progress bars.
 
 Get the [Changelog](https://github.com/Altaba77/ngx-graphical-view/blob/master/CHANGELOG.md).
 
@@ -37,6 +37,8 @@ On going ...
 - Angular 5 or superior and ng-bootstrap 1 or superior plus its dependencies
 
 ## Installation
+
+Not deployed yet, work on progress...
 
 * **NPM**: `npm install ngx-graphical-view`
 * **Bower**: `bower install ngx-graphial-view`
@@ -137,7 +139,7 @@ were steps is
     steps.push({ 'image': 'step2_w.png', "imageComplete": 'step2_y.png', "caption": "test caption" });
 ```
 
-## component Attributes
+## Component Attributes
 Inputs:
 - `steps` (mandatory) - Table of Step object (see bellow)
    Model of the object steps:
