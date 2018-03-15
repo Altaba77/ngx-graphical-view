@@ -43,6 +43,22 @@ Not deployed yet, work on progress...
 * **NPM**: `npm install ngx-graphical-view`
 * **Bower**: `bower install ngx-graphial-view`
 
+You could have to add the bootstrap stylesheet to your application if the progress bars don't appear:
+
+ - In the index.html file, add the bootstrap css file.
+
+```html
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+```
+
+ - Or copy the file "bootstrap.min.css" in the src folder of your application then add it in the styles variable of the file ".angular-cli.json"
+ ```ts
+"styles":[
+    "bootstrap.min.css"
+    ]
+ ```
+
+
 ## Usage
 
 Import the module in your appplication module
@@ -89,15 +105,15 @@ export interface Step {
 ## Usage Example 1 - horizontal mode with caption and status box
 
 ```html
-<walkthrough
+<graphical-view
             [steps]="steps"
             [progress-value]="40"
             [status-caption]="'status box test'"
             [direction]="'HORIZONTAL'">
-</walkthrough>
+</graphical-view>
 ```
 
-were steps is
+where steps is
 ```ts
  let steps: Step[] = [];
     steps.push({ 'image': 'step1_w.png', "imageComplete": 'step1_y.png', "caption": "test caption" });
@@ -107,11 +123,11 @@ were steps is
 ## Usage Example 2 - horizontal mode without caption and without status box
 
 ```html
-<walkthrough
+<graphical-view
             [steps]="steps"
             [progress-value]="40"
             [direction]="'HORIZONTAL'">
-</walkthrough>
+</graphical-view>
 ```
 
 were steps is
@@ -124,12 +140,12 @@ were steps is
 ## Usage Example 3 - vertical mode with caption and status box on 50% of the width
 
 ```html
-<walkthrough
+<graphical-view
             [steps]="steps"
             [progress-value]="40"
             [status-caption]="'status box test'"
             [direction]="'VERTICAL'" style="width:50%;display:block">
-</walkthrough>
+</graphical-view>
 ```
 
 were steps is
