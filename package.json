@@ -37,9 +37,7 @@
     "license": "MIT",
     "dependencies": {
         "tslib": "^1.7.1",
-        "@ng-bootstrap/ng-bootstrap": "^1.0.0",
-        "jquery": ">=1.9.1",
-        "popper.js": "^1.12.9"
+        "@ng-bootstrap/ng-bootstrap": "^1.0.0"
     },
     "peerDependencies": {
         "@angular/common": ">= 5.0.2",
