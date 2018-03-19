@@ -38,12 +38,10 @@ On going ...
 
 ## Installation
 
-Not deployed yet, work on progress...
-
 * **NPM**: `npm install ngx-graphical-view`
 * **Bower**: `bower install ngx-graphial-view`
 
-Asthe library use bootstrapyou need to add the bootstrap css file to the application:
+The library use bootstrap, so you need to add the bootstrap css file to the application:
 
  - In the index.html file, add the bootstrap css file.
 
