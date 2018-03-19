@@ -43,12 +43,12 @@ Not deployed yet, work on progress...
 * **NPM**: `npm install ngx-graphical-view`
 * **Bower**: `bower install ngx-graphial-view`
 
-You could have to add the bootstrap stylesheet to your application if the progress bars don't appear:
+Asthe library use bootstrapyou need to add the bootstrap css file to the application:
 
  - In the index.html file, add the bootstrap css file.
 
 ```html
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 ```
 
  - Or copy the file "bootstrap.min.css" in the src folder of your application then add it in the styles variable of the file ".angular-cli.json"
