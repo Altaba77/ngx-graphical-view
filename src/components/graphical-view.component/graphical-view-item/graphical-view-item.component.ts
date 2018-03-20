@@ -94,15 +94,15 @@ export class GraphicalViewItemComponent implements AfterViewChecked {
   }
 
   calculateCaptionPosition() {
-    if (this.captionImg) {
+    if (this.captionImg && this.direction === Direction.VERTICAL) {
       let calculateLeft;
       if (this.captionPosition === 'LEFT') {
         calculateLeft = "calc(50% - " + this.captionImg.nativeElement.offsetWidth + "px - " + this.stepH / 2 + "rem)";
       } else if (this.captionPosition === 'RIGHT') {
         calculateLeft = "calc(50% + " + this.stepH / 2 + "rem)";
       } else {
-        console.error("Wrong position for the caption", this.captionPosition);
-        return;
+        calculateLeft = "calc(50% - " + this.captionImg.nativeElement.offsetWidth + "px - " + this.stepH / 2 + "rem)";
+        //console.warn("Wrong position for the caption", this.captionPosition, "default value has been used");
       }
       this.renderer.setStyle(this.captionImg.nativeElement, "left", calculateLeft);
     }

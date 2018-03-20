@@ -15,15 +15,13 @@ Get the [Changelog](https://github.com/Altaba77/ngx-graphical-view/blob/master/C
 
 ## ScreenShots
 
-On going ...
-<!-- Horinzontal mode:
-![alt tag](/screenshots/screenshot1.png)
-![alt tag](/screenshots/screenshot2.png)
-![alt tag](/screenshots/screenshot3.png)
+Horinzontal mode:
+![alt tag](/screenshots/HORIZONTAL_1.png)
+![alt tag](/screenshots/HORIZONTAL_2.png)
 
 Vertical mode:
 
-![alt tag](/screenshots/screenshot4.png) -->
+![alt tag](/screenshots/VERTICAL_1.png) 
 
 # Demo
 
@@ -175,7 +173,8 @@ were
 - `caption-position` (optional) - Position of the caption compare to the image. Either "TOP", "BOTTOM", "LEFT", "RIGHT". Note that top and bottom are for horizontal direction only when left and roght are for vertical direction.
 - `caption-color` (optional) - Caption color.
 - `progress-bar-height` (optional) - Height of the progress bar in rem.
-- `status-caption` (optional) - This is the text that will be displayed in the status box (if none are given no status box will be displayed).
+- `status-caption` (optional) - This is the text that will be displayed in the status box (if none are given no status box will be displayed).4
+- `status-position` (optional) - Position of the status box compare to the progress bar. Either "TOP", "BOTTOM", "LEFT", "RIGHT". Note that top and bottom are for horizontal direction only when left and roght are for vertical direction.
 - `status-color` (optional) - Status text color.
 - `status-size` (optional) - Size of the text displaye din the status box.
 - `status-border-color` (optional) - Color of the status border.

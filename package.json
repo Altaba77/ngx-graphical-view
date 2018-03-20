@@ -1,7 +1,7 @@
 {
     "name": "ngx-graphical-view",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Build a progress bar that include image as intermediate steps",
     "main": "./bundles/graphical-view.umd.js",
     "module": "./esm5/graphical-view.js",

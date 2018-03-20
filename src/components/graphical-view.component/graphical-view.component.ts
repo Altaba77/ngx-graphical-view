@@ -284,6 +284,7 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
   ngAfterViewChecked() {
     this.calculateprogressVerticalPosition();
     this.verifyStatusPositionInput(this.statusPosition);
+    this.verifyCaptionPositionInput(this.captionPosition);
     this.setStatusBox();
     this.verifyProgressBarColor();
     this.setStatusBoxBorder();
@@ -441,10 +442,10 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
         this.statusBoxPadding = this.progressValue.toString();
       }
     } else if (this.direction === Direction.VERTICAL) {
-      if (this.statusPosition === StatusPosition.RIGHT) {
-        this.arrowCssValue = "VERTICAL-RIGHT";
-      } else if (this.statusPosition === StatusPosition.LEFT) {
+      if (this.statusPosition === StatusPosition.LEFT) {
         this.arrowCssValue = "VERTICAL-LEFT";
+      } else {
+        this.arrowCssValue = "VERTICAL-RIGHT";
       }
 
       if (this.statusBox) {
@@ -465,7 +466,7 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
             } else {
               this.statusBoxHorizontalPos = 50 * this.progressbarcontainer.nativeElement.offsetWidth / 100 - imgWidth / 2 - 20 - this.statusBox.nativeElement.offsetWidth - 4;
             }
-          } else if (this.statusPosition === StatusPosition.RIGHT) {
+          } else {
             if (this.captionPosition.toString() === this.statusPosition.toString()) {
               this.statusBoxHorizontalPos = 50 * this.progressbarcontainer.nativeElement.offsetWidth / 100 + captionWidth + imgWidth / 2 + 20;
             } else {
@@ -518,6 +519,28 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
     }
   }
 
+   /**
+   * check the position inputs of the status box
+   * @param value 
+   */
+  verifyCaptionPositionInput(value: string): void {
+    if (this.direction === Direction.HORIZONTAL) {
+      if (value && (value === CaptionPosition.BOTTOM || value === CaptionPosition.TOP)) {
+        this.captionPosition = value;
+      } else {
+        //console.warn("Wrong status position", value, "for direction", this.direction, "default value used");
+        this.captionPosition = CaptionPosition.BOTTOM
+      }
+    } else if (this.direction === Direction.VERTICAL) {
+      if (value && (value === CaptionPosition.LEFT || value === CaptionPosition.RIGHT)) {
+        this.captionPosition = value;
+      } else {
+        //console.warn("Wrong status position", value, "for direction", this.direction, "default value used");
+        this.captionPosition = CaptionPosition.RIGHT
+      }
+    }
+  }
+
   /**
    * check the position inputs of the status box
    * @param value 
@@ -527,14 +550,14 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
       if (value && (value === StatusPosition.BOTTOM || value === StatusPosition.TOP)) {
         this.statusPosition = value;
       } else {
-        console.error("Wrong status position", value, "for direction", this.direction);
+        //console.warn("Wrong status position", value, "for direction", this.direction, "default value used");
         this.statusPosition = StatusPosition.BOTTOM
       }
     } else if (this.direction === Direction.VERTICAL) {
       if (value && (value === StatusPosition.LEFT || value === StatusPosition.RIGHT)) {
         this.statusPosition = value;
       } else {
-        console.error("Wrong status position", value, "for direction", this.direction);
+        //console.warn("Wrong status position", value, "for direction", this.direction, "default value used");
         this.statusPosition = StatusPosition.RIGHT
       }
     }
@@ -564,7 +587,7 @@ export class GraphicalViewComponent implements AfterViewChecked, OnChanges {
     e.style.borderColor = '';
     e.style.borderColor = value;
     if (e.style.borderColor == '') {
-      console.error("Invalid color: ", value);
+      //console.error("Invalid color: ", value);
       return null;
     }
 
